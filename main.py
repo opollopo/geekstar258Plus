@@ -1,16 +1,54 @@
-# 这是一个示例 Python 脚本。
-
-# 按 Shift+F10 执行或将其替换为您的代码。
-# 按 双击 Shift 在所有地方搜索类、文件、工具窗口、操作和设置。
+a = "1"
 
 
-def print_hi(name):
-    # 在下面的代码行中使用断点来调试脚本。
-    print(f'Hi, {name}')  # 按 Ctrl+F8 切换断点。
+# 类
+# 对象
+# 1  isinstance判断一个对象是否是某种类型
+print(isinstance(a, (bool, int)))
 
 
-# 按间距中的绿色按钮以运行脚本。
-if __name__ == '__main__':
-    print_hi('PyCharm')
+# 2 callable 判断一个对象是否可以被调用
+def f():
+    for i in range(0, 10 ** 9):
+        if (i - int(str(i)[::-1])) % 9 != 0:
+            print("找到了一个反常数,你不在真实世界")
+            break
+    else:
+        print("你在真实世界")
 
-# 访问 https://www.jetbrains.com/help/pycharm/ 获取 PyCharm 帮助
+
+class A(object):
+    def __call__(self, *args, **kwargs):
+        pass
+    def abc(self):
+        pass
+
+# 整数，字符串，列表，字典等这些类型的实例不可以被调用
+print(callable(a))
+# 类可以被调用
+print(callable(A))
+b = A()
+print("类的实例b",callable(b))
+# 方法可以被调用
+print(callable(b.abc))
+
+# def g(a: int):
+#     return int(str(a)[::-1])
+
+
+t = lambda x: int(str(x)[::-1])
+# lambda函数可以被调用
+print(callable(t))
+
+# 3 help()
+help(callable)
+help(isinstance)
+
+# 4 id()
+u = "1"
+print(id(a))
+print(id(u))
+y = 1
+print(id(y))
+w = y
+print(id(w))
